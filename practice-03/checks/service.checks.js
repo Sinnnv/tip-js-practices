@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import {
   createTask, findTaskById, getPendingTasks, getTaskTitles, getTaskStats,
   addTask, setTaskCompleted, renameTask, removeTask,
-} from "./src/task-service.js";
+} from "../src/task-service.js";
 
 let passed = 0;
 let failed = 0;
@@ -346,6 +346,14 @@ check("35. Работа с другим набором, без зависимо�
   assert.deepEqual(expectTasks(removeTask(next, 203)).map((task) => task.id), [88]);
   assert.deepEqual(tasks, before);
 });
+
+// Три собственных проверки можно добавить здесь, до итогового вывода,
+// либо выполнить отдельно и описать в отчёте. Общие проверки удалять не нужно.
+// Пример формы записи (не готовая проверка задания):
+// check("Собственный случай: ...", () => {
+//   const result = ...;
+//   assert.deepEqual(result, ...);
+// });
 
 console.log(`\nПроверок пройдено: ${passed}; не пройдено: ${failed}.`);
 if (failed > 0) {
